@@ -1,1 +1,10 @@
+useEffect ka ohla parameter hota hai function and second paraneter hota hai array
+kabhi bhi useEffect k andar state chaneg nahi krte hain .....ye component did mount ki trah work krta hai
+sara dom banne k bad hi useEffect kam krega
+usefeect k andar dependcecy me jo bhi hota hai jb wo change hoga tabhi ja k useeffect run krega
 
+usecontext -----
+
+jo function hai uske andar hm app ko wrap krete hain
+
+setState=>()

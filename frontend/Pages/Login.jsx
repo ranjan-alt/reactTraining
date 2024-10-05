@@ -1,10 +1,39 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import BASE_URL from "../config";
+import { loginUser } from "../utils/authApi";
 
 const Login = () => {
+  const [state, setState] = useState({
+    email: "",
+    password: "",
+  });
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setState({ ...state, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(state);
+    try {
+      const response = await loginUser(state.email, state.password);
+      setSuccessMessage("Login successful!");
+      setErrorMessage(""); // Clear any previous error
+      console.log("Login response:", response);
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <>
-      <form className="max-w-sm mx-auto">
+      <form className="max-w-sm mx-auto" onSubmit={handleSubmit}>
         <div className="mb-5">
           <label
             for="email"
@@ -18,6 +47,8 @@ const Login = () => {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="name@flowbite.com"
             required
+            onChange={handleChange}
+            value={state.name}
           />
         </div>
         <div className="mb-5">
@@ -32,6 +63,8 @@ const Login = () => {
             id="password"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             required
+            onChange={handleChange}
+            value={state.password}
           />
         </div>
         <div className="flex items-start mb-5">
@@ -59,7 +92,7 @@ const Login = () => {
         </button>
         <p className="mt-5 text-textColor text-center">
           Dont&apos; have an account?{" "}
-          <Link to="/register" className="text-blue font-medium ml-1">
+          <Link to="/register" className="text-blue-800 font-medium ml-1">
             Register
           </Link>
         </p>
