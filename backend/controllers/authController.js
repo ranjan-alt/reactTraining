@@ -51,6 +51,8 @@ const login = async (req, res) => {
       expiresIn: "1d",
     });
 
+    console.log("token>>>", token);
+
     res.status(200).json({
       message: "Login  successful",
       token: token,

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import BASE_URL from "../config";
 import { loginUser } from "../utils/authApi";
+import { login } from "../redux/auth/actions";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
   const [state, setState] = useState({
@@ -10,8 +12,9 @@ const Login = () => {
   });
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,9 +29,12 @@ const Login = () => {
       setSuccessMessage("Login successful!");
       setErrorMessage(""); // Clear any previous error
       console.log("Login response:", response);
+      dispatch(login(response.data));
+      setIsLoggedIn(true);
       navigate("/");
     } catch (error) {
       console.error(error);
+      setIsLoggedIn(false);
     }
   };
   return (
@@ -48,7 +54,8 @@ const Login = () => {
             placeholder="name@flowbite.com"
             required
             onChange={handleChange}
-            value={state.name}
+            value={state.email}
+            name="email"
           />
         </div>
         <div className="mb-5">
@@ -65,6 +72,7 @@ const Login = () => {
             required
             onChange={handleChange}
             value={state.password}
+            name="password"
           />
         </div>
         <div className="flex items-start mb-5">

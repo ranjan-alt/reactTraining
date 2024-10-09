@@ -8,3 +8,31 @@ usecontext -----
 jo function hai uske andar hm app ko wrap krete hain
 
 setState=>()
+
+-----------------redux class-------------
+
+actions
+constants
+reducers
+
+2nd step install redux
+npm install redux react-redux
+npm i redux-saga
+
+npm i @reduxjs/toolkit
+
+reducer.js
+reducer k passs state hoti hai or usko action chahaiye hota hai
+jaise counter me increase krna hai toh action increase hoga and state update krega
+action pure object hota hai uske pass do properties hoti hai type and paylod
+type ho gya increase and payload bole toh kya action hai increase krna hai ya decrease
+
+uske bad actions.js
+
+redux k passs ek method hota hai dispatch and hm usme de dete hain actions
+
+deeep copy concetps and refrence by value
+learn generator functions
+
+action me hota hai type and payload and payload hm denge value
+ye action jaega reducer k passs or uske dega type and payload
