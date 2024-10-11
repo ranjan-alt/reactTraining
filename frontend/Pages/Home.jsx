@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { increase } from "../redux/count/actions";
+import Calculator from "./Calculator";
 
 const Home = () => {
   const countReducerState = useSelector((state) => state.countReducer);
@@ -14,6 +15,7 @@ const Home = () => {
       <h1>Home</h1>
       {count}
       <button onClick={increaseButton}>Increase +</button>
+      <Calculator />
     </>
   );
 };

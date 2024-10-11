@@ -36,3 +36,11 @@ learn generator functions
 
 action me hota hai type and payload and payload hm denge value
 ye action jaega reducer k passs or uske dega type and payload
+
+login.jsx
+
+login will be imported from actions.js
+dispatch(login(response.data))
+
+what is genreator functions very important to know how to use in saga
+control J to close the termial toggle

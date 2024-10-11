@@ -29,7 +29,7 @@ const Login = () => {
       setSuccessMessage("Login successful!");
       setErrorMessage(""); // Clear any previous error
       console.log("Login response:", response);
-      dispatch(login(response.data));
+      dispatch(login(response));
       setIsLoggedIn(true);
       navigate("/");
     } catch (error) {
