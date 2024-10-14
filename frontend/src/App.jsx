@@ -1,6 +1,7 @@
 import "./App.css";
 import Layout from "../Layout/Layout";
 import { BrowserRouter as Router } from "react-router-dom";
+import Generator from "../Pages/Generator";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Router>
         <Layout />
       </Router>
+      <Generator />
     </>
   );
 }

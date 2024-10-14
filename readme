@@ -44,3 +44,23 @@ dispatch(login(response.data))
 
 what is genreator functions very important to know how to use in saga
 control J to close the termial toggle
+
+action kya hota hai--- wo ek pure object hota hai ir usme hm kuch bhi daal sakte hain
+reducer k pass satte hota hai or uske ACTION CHAHIYE HOTA HAI and it gives new or updated state
+reducer bas ek bar hi action krega
+
+ek array k andar kitne item hai kais pta kre?
+
+case ADD_TODO:
+{
+const prevSelectedItems = state[SELECTED_TODOS];
+const newTodo = action?.payload;
+const newSelectedTodos = [...prevSelectedItems, newTodo];
+localStorage.setItem(SELECTED_TODOS, JSON.stringify(newSelectedTodos));
+return { ...state, [SELECTED_TODOS]: newSelectedTodos }
+}
+
+action k pass type and payload hota hai and its a pure object
+
+jb hm dispacth krte hai toh seedha jaega action k passs and reducer k passs oaunch jaega
+and reducer type check krta hai hmare case me addtodo
