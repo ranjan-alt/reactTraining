@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { fetchTodos } from "../redux/todos/actions";
+import { addTodo, fetchTodos } from "../redux/todos/actions";
 import { useEffect } from "react";
 
 const Todos = () => {
-  const { fetch_todos, fetch_todos_pending } = useSelector(
+  const { fetch_todos, fetch_todos_pending, SELECTED_TODOS } = useSelector(
     (state) => state?.todoReducer
   );
   console.log(fetch_todos, "main");
@@ -15,13 +15,62 @@ const Todos = () => {
   return (
     <>
       <h1>Todos</h1>
-      <div>
+      <div style={{ height: "200px", overflow: "scroll" }}>
         {fetch_todos_pending
           ? "Loading..."
           : fetch_todos?.map((item) => {
-              return <div>{item?.title}</div>;
+              return (
+                <div
+                  style={{
+                    display: "flex",
+                    margin: "0 auto",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <div>{item?.title}</div>
+                  <button
+                    style={{
+                      border: "2px solid black",
+                      margin: "5px",
+                      borderRadius: "10px",
+                      backgroundColor: "red",
+                    }}
+                    onClick={() => dispatch(addTodo(item))}
+                  >
+                    ADD
+                  </button>
+                </div>
+              );
             })}
       </div>{" "}
+      <div>
+        <h1>Selected todo</h1>
+        {SELECTED_TODOS.map((item, index) => {
+          return (
+            <div>
+              <li
+                style={{
+                  display: "flex",
+                  margin: "0 auto",
+                  justifyContent: "space-between",
+                }}
+              >
+                {item.title}
+              </li>
+              <button
+                style={{
+                  border: "2px solid black",
+                  margin: "5px",
+                  borderRadius: "10px",
+                  backgroundColor: "red",
+                }}
+              >
+                Remove
+              </button>
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 };
