@@ -20,10 +20,10 @@ function* fetchTodos(params) {
     if (response?.data?.length) {
       yield put({ type: SET_TODOS, payload: response.data });
     }
-    yield put({ SET_FETCH_TODOS_PENDING, payload: false });
+    yield put({ type: SET_FETCH_TODOS_PENDING, payload: false });
   } catch (error) {
-    yield put({ FETCH_TODOS_ERROR, payload: error.message });
-    yield put({ FETCH_TODOS_PENDING, payload: false });
+    yield put({ type: FETCH_TODOS_ERROR, payload: error.message });
+    yield put({ type: FETCH_TODOS_PENDING, payload: false });
   }
 }
 

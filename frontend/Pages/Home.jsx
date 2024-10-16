@@ -3,6 +3,7 @@ import { increase } from "../redux/count/actions";
 import Calculator from "./Calculator";
 import { fetchTodos } from "../redux/todos/actions";
 import todoReducer from "../redux/todos/reducer";
+import Todos from "./Todos";
 
 const Home = () => {
   const countReducerState = useSelector((state) => state.countReducer);
@@ -20,17 +21,15 @@ const Home = () => {
     dispatch(increase(1));
   };
 
-  const handleFetchTodo = () => {
-    console.log("fetchtodos");
-    dispatch(fetchTodos());
-  };
   return (
     <>
       <h1>Home</h1>
       {count}
       <button onClick={increaseButton}>Increase +</button>
-      <button onClick={handleFetchTodo}>Fetch Todos</button>
-      <Calculator />
+
+      {/* <Calculator /> */}
+
+      <Todos />
     </>
   );
 };
