@@ -9,7 +9,7 @@ function App() {
       <Router>
         <Layout />
       </Router>
-      <Generator />
+      {/* <Generator /> */}
     </>
   );
 }
