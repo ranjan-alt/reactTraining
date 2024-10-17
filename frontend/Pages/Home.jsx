@@ -5,6 +5,7 @@ import { fetchTodos } from "../redux/todos/actions";
 import todoReducer from "../redux/todos/reducer";
 import Todos from "./Todos";
 import Product from "./Product";
+import { ProductProvider } from "../context/productContext";
 
 const Home = () => {
   const countReducerState = useSelector((state) => state.countReducer);
@@ -31,7 +32,9 @@ const Home = () => {
       {/* <Calculator /> */}
 
       {/* <Todos /> */}
-      <Product />
+      <ProductProvider>
+        <Product />
+      </ProductProvider>
     </>
   );
 };
