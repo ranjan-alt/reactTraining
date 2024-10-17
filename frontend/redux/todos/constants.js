@@ -6,3 +6,4 @@ export const SET_TODOS = "set_todos";
 export const SET_FETCH_TODOS_ERROR = "set_fetch_todos_error";
 export const SET_FETCH_TODOS_PENDING = "set_fetch_todos_pending";
 export const ADD_TODO = "add_todo";
+export const REMOVE_TODO = "remove_todo";

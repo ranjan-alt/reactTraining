@@ -2,6 +2,7 @@ require("dotenv").config({ path: "./.env" });
 const express = require("express");
 const connectDB = require("./db/db");
 const authRoutes = require("./routes/authRoute");
+const todoRoutes = require("./routes/todoRoutes");
 const cors = require("cors"); // Import CORS middleware
 
 const port = process.env.PORT || 8000;
@@ -14,6 +15,7 @@ connectDB();
 
 // Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/todo", todoRoutes);
 
 app.listen(port, () => {
   console.log(`server is running on ${port}`);

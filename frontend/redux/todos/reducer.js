@@ -3,6 +3,7 @@ import {
   FETCH_TODOS,
   FETCH_TODOS_ERROR,
   FETCH_TODOS_PENDING,
+  REMOVE_TODO,
   SET_FETCH_TODOS_ERROR,
   SET_FETCH_TODOS_PENDING,
   SET_TODOS,
@@ -24,10 +25,47 @@ const todoReducer = (state = initialState, action) => {
       return { ...state, [FETCH_TODOS_ERROR]: action.payload };
     }
     case ADD_TODO: {
-      const newTodo = action.payload;
-      console.log("Reducer received todo:", newTodo);
-      return { ...state, SELECTED_TODOS: [...state.SELECTED_TODOS, newTodo] };
+      const prevSelectedItems = state.SELECTED_TODOS;
+
+      const newTodo = action?.payload;
+
+      const selectedItemIndex = prevSelectedItems.find(
+        (item) => item?.id === newTodo?.id
+      );
+
+      let updatedTodoList = [];
+      if (!selectedItemIndex) {
+        updatedTodoList = [...prevSelectedItems, { ...newTodo, quantity: 1 }];
+      } else {
+        updatedTodoList = prevSelectedItems.map((item) => {
+          if (item?.id == newTodo?.id) {
+            return { ...item, quantity: item?.quantity + 1 };
+          }
+          return item;
+        });
+      }
+
+      return { ...state, SELECTED_TODOS: updatedTodoList };
     }
+
+    case REMOVE_TODO: {
+      const prevSelectedItems = state.SELECTED_TODOS;
+      const todo = action?.payload;
+      const updatedPrevSelectedItems = prevSelectedItems
+        .filter((item) => {
+          if (item.id == todo.id) {
+            return {
+              ...item,
+              quantity: item.quantity > 0 ? item.quantity-- : 0,
+            };
+          } else {
+            return item;
+          }
+        })
+        .filter((item) => item.quantity > 0);
+      return { ...state, SELECTED_TODOS: updatedPrevSelectedItems };
+    }
+
     default:
       return state;
   }

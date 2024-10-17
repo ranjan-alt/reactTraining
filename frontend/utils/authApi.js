@@ -3,7 +3,7 @@ import BASE_URL from "../config";
 
 export const registerUser = (email, name, password) => {
   try {
-    const response = axios.post(`${BASE_URL}/register`, {
+    const response = axios.post(`${BASE_URL}/auth/register`, {
       email,
       name,
       password,
@@ -16,7 +16,7 @@ export const registerUser = (email, name, password) => {
 
 export const loginUser = async (email, password) => {
   try {
-    const response = await axios.post(`${BASE_URL}/login`, {
+    const response = await axios.post(`${BASE_URL}/auth/login`, {
       email,
       password,
     });

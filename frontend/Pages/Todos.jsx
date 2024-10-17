@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo, fetchTodos } from "../redux/todos/actions";
+import { addTodo, fetchTodos, removeTodo } from "../redux/todos/actions";
 import { useEffect } from "react";
 
 const Todos = () => {
@@ -48,15 +48,16 @@ const Todos = () => {
         {SELECTED_TODOS.map((item, index) => {
           return (
             <div>
-              <li
+              <div
                 style={{
                   display: "flex",
                   margin: "0 auto",
                   justifyContent: "space-between",
                 }}
               >
-                {item.title}
-              </li>
+                {item?.title}
+              </div>
+              <div>{item?.quantity}</div>
               <button
                 style={{
                   border: "2px solid black",
@@ -64,6 +65,7 @@ const Todos = () => {
                   borderRadius: "10px",
                   backgroundColor: "red",
                 }}
+                onClick={() => dispatch(removeTodo(item))}
               >
                 Remove
               </button>
