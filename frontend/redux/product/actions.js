@@ -1,6 +1,6 @@
 import { FETCH_PRODUCTS } from "./constants";
 
-export const fetchProduct = (payload) => {
+export const fetchProduct = () => {
   return {
     type: FETCH_PRODUCTS,
   };

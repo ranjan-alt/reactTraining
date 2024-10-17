@@ -27,6 +27,6 @@ function* fetchTodos(params) {
   }
 }
 
-export default function* saga() {
+export default function* todoSaga() {
   yield takeLatest(FETCH_TODOS, fetchTodos);
 }
