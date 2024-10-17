@@ -4,8 +4,9 @@ import Calculator from "./Calculator";
 import { fetchTodos } from "../redux/todos/actions";
 import todoReducer from "../redux/todos/reducer";
 import Todos from "./Todos";
-import Product from "./Product";
-import { ProductProvider } from "../context/productContext";
+
+import { ProductProvider } from "../context/ProductContext";
+import Product from "./ProductContextExample";
 
 const Home = () => {
   const countReducerState = useSelector((state) => state.countReducer);
