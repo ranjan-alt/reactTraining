@@ -8,6 +8,7 @@ import Todos from "./Todos";
 import { ProductProvider } from "../context/ProductContext";
 import Product from "./ProductContextExample";
 import ProductUsingRedux from "./ProductUsingRedux";
+import Mobile from "../components/Mobile";
 
 const Home = () => {
   // const countReducerState = useSelector((state) => state.countReducer);
@@ -37,7 +38,8 @@ const Home = () => {
       {/* <ProductProvider>
         <Product />
       </ProductProvider> */}
-      <ProductUsingRedux />
+      {/* <ProductUsingRedux /> */}
+      <Mobile />
     </>
   );
 };
