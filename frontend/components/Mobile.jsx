@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   decreaseMobileCount,
   increaseMobileCount,
-} from "../redux/todoToolkit/mobile";
+} from "../redux/slice/mobile";
 
 const Mobile = () => {
   const mobileReducerState = useSelector((state) => state.mobileReducer);

@@ -12,6 +12,7 @@ const mobileReducer = createSlice({
     [MOBILE_LIST]: [],
     [MOBILE_COUNT]: 0,
   },
+
   reducers: {
     increaseMobileCount(state, action) {
       state[MOBILE_COUNT] = state[MOBILE_COUNT] + action.payload;

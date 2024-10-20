@@ -27,13 +27,17 @@ import todoSaga from "./todos/saga";
 
 const sagaMiddleware = createSagaMiddleware();
 
-function* rootSaga() {
-  yield all([productSaga(), todoSaga()]);
-}
+// function* rootSaga() {
+//   yield all([productSaga(), todoSaga()]);
+// }
+
+// export const store = configureStore({
+//   reducer: rootReducer,
+//   middleware: () => [sagaMiddleware],
+// });
+
+// sagaMiddleware.run(rootSaga);
 
 export const store = configureStore({
   reducer: rootReducer,
-  middleware: () => [sagaMiddleware],
 });
-
-sagaMiddleware.run(rootSaga);
