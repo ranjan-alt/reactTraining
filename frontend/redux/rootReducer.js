@@ -6,6 +6,7 @@ import todoReducer from "./todos/reducer";
 import productReducer from "./product/reducer";
 import mobileReducer from "./slice/mobile";
 import productReducerSlice from "./slice/product";
+import counterslice from "./slice/counterSlice";
 
 export const rootReducer = combineReducers({
   todoReducer,
@@ -16,4 +17,5 @@ export const rootReducer = combineReducers({
   productReducer,
   mobileReducer,
   productReducerSlice,
+  counterslice,
 });

@@ -64,3 +64,22 @@ action k pass type and payload hota hai and its a pure object
 
 jb hm dispacth krte hai toh seedha jaega action k passs and reducer k passs oaunch jaega
 and reducer type check krta hai hmare case me addtodo
+
+
+
+const arr1 = [1, 2,  3, 4, 5];
+const arr3 = [ab, b , c]
+
+console.log([...arr1, ...arr3]);
+
+
+redux and redux toolkit 
+redux me hmlog action reducer saga constants
+
+but in redux toolkit hmlog slice use krte hai and thunks use krte hain
+
+redux is a pure function wo rukta nahi hai kisi k liay thats why we have to add extrareducer so for this we use BUILDER
+builder is used for async function 
+
+PROMISE means iska reponse late aega
+

@@ -10,6 +10,7 @@ import Product from "./ProductContextExample";
 import ProductUsingRedux from "./ProductUsingRedux";
 import Mobile from "../components/Mobile";
 import ProductSlice from "../components/ProductSlice";
+import CountSlice from "../components/CountSlice";
 
 const Home = () => {
   // const countReducerState = useSelector((state) => state.countReducer);
@@ -39,9 +40,10 @@ const Home = () => {
       {/* <ProductProvider>
         <Product />
       </ProductProvider> */}
-      {/* <ProductUsingRedux /> */}
+      <ProductUsingRedux />
       {/* <Mobile /> */}
-      <ProductSlice />
+      {/* <ProductSlice /> */}
+      <CountSlice />
     </>
   );
 };

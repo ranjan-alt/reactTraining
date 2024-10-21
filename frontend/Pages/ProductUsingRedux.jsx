@@ -4,11 +4,12 @@ import { useEffect } from "react";
 import { fetchProduct } from "../redux/product/actions";
 
 const ProductUsingRedux = () => {
-  const { products } = useSelector(productReducer);
+  const { products } = useSelector((state) => state.productReducer);
   console.log(products);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProduct());
+    console.log(fetchProduct());
   }, [dispatch]);
   return (
     <>
