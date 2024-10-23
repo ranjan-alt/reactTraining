@@ -11,6 +11,8 @@ import ProductUsingRedux from "./ProductUsingRedux";
 import Mobile from "../components/Mobile";
 import ProductSlice from "../components/ProductSlice";
 import CountSlice from "../components/CountSlice";
+import ThemeToggle from "../components/ThemeToggle";
+import ThemeProvider from "../context/ThemeContext";
 
 const Home = () => {
   // const countReducerState = useSelector((state) => state.countReducer);
@@ -44,6 +46,9 @@ const Home = () => {
       {/* <Mobile /> */}
       {/* <ProductSlice /> */}
       <CountSlice />
+      <ThemeProvider>
+        <ThemeToggle />
+      </ThemeProvider>
     </>
   );
 };
