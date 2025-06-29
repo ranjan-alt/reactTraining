@@ -2,6 +2,7 @@ const Task = require("../modals/taskModel");
 
 const addTask = async (req, res) => {
   const { task, completed } = req.body;
+  console.log(task, completed);
   const newTask = new Task({
     task,
     completed,

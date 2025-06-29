@@ -4,6 +4,6 @@ const router = express.Router();
 
 const { addTask } = require("../controllers/taskController");
 
-router.post("/addtask", addTask);
+router.post("/", addTask);
 
 module.exports = router;
