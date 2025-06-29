@@ -11,6 +11,7 @@ const addTask = async (req, res) => {
   try {
     const saveTask = await newTask.save();
     res.status(201).json({ data: saveTask });
+    console.log(saveTask);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

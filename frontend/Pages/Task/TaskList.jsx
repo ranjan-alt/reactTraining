@@ -9,7 +9,10 @@ const Task = () => {
     e.preventDefault();
     console.log("submitting form....");
     try {
-      const response = await axios.post(`${BASE_URL}/api/addtask`, formData);
+      const response = await axios.post(
+        `${BASE_URL}/api/task/addtask`,
+        formData
+      );
       console.log(response.data, typeof response);
     } catch (error) {
       console.log(error.message);
