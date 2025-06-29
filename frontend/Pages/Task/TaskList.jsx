@@ -1,11 +1,19 @@
 import { useState } from "react";
+import axios from "axios";
+import BASE_URL from "../../config";
 
 const Task = () => {
   const [formData, setFormData] = useState({ task: "", completed: false });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    console.log("submitting form....");
+    try {
+      const response = await axios.post(`${BASE_URL}/api/addtask`, formData);
+      console.log(response.data, typeof response);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   const handleChange = (e) => {

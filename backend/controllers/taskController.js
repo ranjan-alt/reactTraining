@@ -1,0 +1,18 @@
+const Task = require("../modals/taskModel");
+
+const addTask = async (req, res) => {
+  const { task, completed } = req.body;
+  const newTask = new Task({
+    task,
+    completed,
+  });
+
+  try {
+    const saveTask = await newTask.save();
+    res.status(201).json({ data: saveTask });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+module.exports = { addTask };
