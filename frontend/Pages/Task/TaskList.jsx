@@ -32,6 +32,7 @@ const Task = () => {
     try {
       const res = await axios.get(`${BASE_URL}/api/task/gettask`);
       console.log(res.data.data, "response gettask");
+      setTask(res.data.data);
     } catch (error) {
       console.log(error.message);
     }
@@ -58,6 +59,15 @@ const Task = () => {
         />
         <button type="submit">Submit</button>
       </form>
+
+      <div>
+        <h2>All Task</h2>
+        <ul>
+          {task.map((item) => (
+            <li key={item._id}>{item.task}</li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 };
