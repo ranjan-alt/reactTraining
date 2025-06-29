@@ -17,4 +17,12 @@ const addTask = async (req, res) => {
   }
 };
 
-module.exports = { addTask };
+const getTask = async (req, res) => {
+  try {
+    const task = await Task.find();
+    res.status(200).json({ data: task });
+  } catch (error) {
+    res.status(200).json({ message: error.message });
+  }
+};
+module.exports = { addTask, getTask };

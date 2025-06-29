@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import BASE_URL from "../../config";
 
 const Task = () => {
   const [formData, setFormData] = useState({ task: "", completed: false });
+  const [task, setTask] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -13,7 +14,7 @@ const Task = () => {
         `${BASE_URL}/api/task/addtask`,
         formData
       );
-      console.log(response.data, typeof response);
+      console.log(response.data, typeof response, "ranjan");
     } catch (error) {
       console.log(error.message);
     }
@@ -26,6 +27,18 @@ const Task = () => {
       [name]: type === "checkbox" ? checked : value,
     }));
   };
+
+  const fetchTask = async () => {
+    try {
+      const res = await axios.get(`${BASE_URL}/api/task/gettask`);
+      console.log(res.data.data, "response gettask");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+  useEffect(() => {
+    fetchTask();
+  }, []);
   return (
     <>
       <h1>TASK</h1>
