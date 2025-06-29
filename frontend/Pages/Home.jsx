@@ -42,13 +42,13 @@ const Home = () => {
       {/* <ProductProvider>
         <Product />
       </ProductProvider> */}
-      <ProductUsingRedux />
+      {/* <ProductUsingRedux /> */}
       {/* <Mobile /> */}
       {/* <ProductSlice /> */}
-      <CountSlice />
-      <ThemeProvider>
+      {/* <CountSlice /> */}
+      {/* <ThemeProvider>
         <ThemeToggle />
-      </ThemeProvider>
+      </ThemeProvider> */}
     </>
   );
 };
