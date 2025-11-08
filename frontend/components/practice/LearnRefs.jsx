@@ -15,6 +15,7 @@ const LearnRef = () => {
       <h1>Learn Refs</h1>
       <p>{count}</p>
       <p>double memoised:{doubleValue}</p>
+
       <button onClick={handleIncrement}>Increment</button>
     </>
   );
